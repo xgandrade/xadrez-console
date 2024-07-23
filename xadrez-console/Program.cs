@@ -1,0 +1,4 @@
+﻿namespace xadrez_console
+{
+    
+}
