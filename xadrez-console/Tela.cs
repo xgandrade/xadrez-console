@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tabuleiro.Entities;
 using tabuleiro.Enums;
+using xadrez.Entities;
 
 namespace xadrez_console
 {
@@ -38,6 +40,15 @@ namespace xadrez_console
                 Console.Write($"{peca} ");
                 Console.ForegroundColor = aux;
             }
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine().ToLower();
+            char coluna = s[0];
+            int linha = int.Parse($"{s[1]}");
+
+            return new PosicaoXadrez(coluna, linha);
         }
     }
 }

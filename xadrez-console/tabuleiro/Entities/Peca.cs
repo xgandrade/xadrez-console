@@ -21,5 +21,7 @@ namespace tabuleiro.Entities
             this.Tabuleiro = tabuleiro;
             this.Cor = cor;
         }
+
+        public void IncrementarQtdMovimentos() => QtdMovimentos++;
     }
 }
