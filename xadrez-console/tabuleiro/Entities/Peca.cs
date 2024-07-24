@@ -24,6 +24,8 @@ namespace tabuleiro.Entities
 
         public void IncrementarQtdMovimentos() => QtdMovimentos++;
 
+        public void DecrementarQtdMovimentos() => QtdMovimentos--;
+
         public abstract bool[,] MovimentosPossiveis();
 
         public bool PodeMoverPara(Posicao pos) => MovimentosPossiveis()[pos.Linha, pos.Coluna];
