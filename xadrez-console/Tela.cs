@@ -20,10 +20,17 @@ namespace xadrez_console
             ImprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine($"\nTurno: {partida.Turno}");
-            Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
-            if (partida.Xeque)
+
+            if (!partida.Terminada)
             {
-                Console.WriteLine("XEQUE!!!");
+                Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
+
+                if (partida.Xeque)
+                    Console.WriteLine("XEQUE!!!");
+            }
+            else
+            {
+                Console.WriteLine($"XEQUE-MATE!!! \nVencedor: {partida.JogadorAtual}");
             }
         }
 
@@ -48,26 +55,39 @@ namespace xadrez_console
 
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
+            ConsoleColor fundoOriginal = Console.BackgroundColor;
+            ConsoleColor fundoMarcacoes = ConsoleColor.Blue;
+
             for (int l = 0; l < tab.Linhas; l++)
             {
+                Console.BackgroundColor = fundoMarcacoes;
                 Console.Write($"{8-l} ");
+                Console.BackgroundColor = fundoOriginal;
+
                 for (int c = 0; c < tab.Colunas; c++)
                 {
                     ImprimirPeca(tab.Peca(l, c));
                 }
                 Console.WriteLine();
             }
+
+            Console.BackgroundColor = fundoMarcacoes;
             Console.WriteLine("  A B C D E F G H");
+            Console.BackgroundColor = fundoOriginal;
         }
 
         public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkCyan;
+            ConsoleColor fundoMarcacoes = ConsoleColor.Blue;
 
             for (int l = 0; l < tab.Linhas; l++)
             {
+                Console.BackgroundColor = fundoMarcacoes;
                 Console.Write($"{8 - l} ");
+                Console.BackgroundColor = fundoOriginal;
+
                 for (int c = 0; c < tab.Colunas; c++)
                 {
                     if (posicoesPossiveis[l, c]) Console.BackgroundColor = fundoAlterado;
@@ -78,6 +98,7 @@ namespace xadrez_console
                 }
                 Console.WriteLine();
             }
+            Console.BackgroundColor = fundoMarcacoes;
             Console.WriteLine("  A B C D E F G H");
             Console.BackgroundColor = fundoOriginal;
         }

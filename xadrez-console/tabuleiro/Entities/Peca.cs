@@ -28,7 +28,7 @@ namespace tabuleiro.Entities
 
         public abstract bool[,] MovimentosPossiveis();
 
-        public bool PodeMoverPara(Posicao pos) => MovimentosPossiveis()[pos.Linha, pos.Coluna];
+        public bool MovimentoPossivel(Posicao pos) => MovimentosPossiveis()[pos.Linha, pos.Coluna];
 
         public bool ExisteMovimentosPossiveis()
         {
