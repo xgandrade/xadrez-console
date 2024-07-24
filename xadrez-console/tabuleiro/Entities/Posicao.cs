@@ -18,9 +18,12 @@ namespace tabuleiro.Entities
             this.Coluna = coluna;
         }
 
-        public override string ToString()
+        public void DefinirValores(int linha, int coluna)
         {
-            return $"{Linha}, {Coluna}";
+            this.Linha = linha;
+            this.Coluna = coluna;
         }
+
+        public override string ToString() => $"{Linha}, {Coluna}";
     }
 }
