@@ -25,5 +25,18 @@ namespace tabuleiro.Entities
         public void IncrementarQtdMovimentos() => QtdMovimentos++;
 
         public abstract bool[,] MovimentosPossiveis();
+
+        public bool PodeMoverPara(Posicao pos) => MovimentosPossiveis()[pos.Linha, pos.Coluna];
+
+        public bool ExisteMovimentosPossiveis()
+        {
+            bool[,] mat = MovimentosPossiveis();
+
+            for (int l = 0; l < Tabuleiro.Linhas; l++)
+                for (int c = 0; c < Tabuleiro.Colunas; c++)
+                    if (mat[l, c]) return true;
+
+            return false;
+        }
     }
 }
