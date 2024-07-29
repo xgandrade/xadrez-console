@@ -19,7 +19,7 @@ namespace xadrez.Entities
         private bool PecaAdversaria(Posicao pos)
         {
             Peca p = Tabuleiro.Peca(pos);
-            return p == null || p.Cor != this.Cor;
+            return p != null && p.Cor != this.Cor;
         }
 
         private bool Livre(Posicao pos) => Tabuleiro.Peca(pos) == null;
