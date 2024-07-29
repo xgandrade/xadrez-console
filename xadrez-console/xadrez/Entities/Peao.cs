@@ -54,19 +54,12 @@ namespace xadrez.Entities
                     if (Posicao.Linha == 3)
                     {
                         Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                        if (Tabuleiro.PosicaoValida(esquerda) && 
-                            PecaAdversaria(esquerda) && 
-                            Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
-                        {
+                        if (Tabuleiro.PosicaoValida(esquerda) && PecaAdversaria(esquerda) && Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
                             mat[esquerda.Linha - 1, esquerda.Coluna] = true;
-                        }
+
                         Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
-                        if (Tabuleiro.PosicaoValida(direita) &&
-                            PecaAdversaria(direita) &&
-                            Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
-                        {
+                        if (Tabuleiro.PosicaoValida(direita) && PecaAdversaria(direita) && Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
                             mat[direita.Linha - 1, direita.Coluna] = true;
-                        }
                     }
                     break;
                 case Cor.Preta:
@@ -90,19 +83,12 @@ namespace xadrez.Entities
                     if (Posicao.Linha == 4)
                     {
                         Posicao esquerda = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
-                        if (Tabuleiro.PosicaoValida(esquerda) &&
-                            PecaAdversaria(esquerda) &&
-                            Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
-                        {
+                        if (Tabuleiro.PosicaoValida(esquerda) && PecaAdversaria(esquerda) && Tabuleiro.Peca(esquerda) == Partida.VulneravelEnPassant)
                             mat[esquerda.Linha + 1, esquerda.Coluna] = true;
-                        }
+
                         Posicao direita = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
-                        if (Tabuleiro.PosicaoValida(direita) &&
-                            PecaAdversaria(direita) &&
-                            Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
-                        {
+                        if (Tabuleiro.PosicaoValida(direita) && PecaAdversaria(direita) && Tabuleiro.Peca(direita) == Partida.VulneravelEnPassant)
                             mat[direita.Linha + 1, direita.Coluna] = true;
-                        }
                     }
                     break;
                 default:
